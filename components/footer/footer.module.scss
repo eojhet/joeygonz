@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(68,68,68,1) 10%, rgba(68,68,68,1) 90%, rgba(0,0,0,1) 100%); 
+    color: #eee;
+    margin-top: 2rem;
+  
+    .innerContainer {
+      max-width: 1000px;
+      padding: 0.5rem 1.5rem;
+    }
+  }

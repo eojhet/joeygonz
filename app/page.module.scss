@@ -1,0 +1,13 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  //justify-content: space-between;
+  align-items:center;
+  padding: 6rem;
+  min-height: 90vh;
+
+  .joeygonz {
+    font-size: 4rem;
+    padding-bottom: 1rem;
+  }
+}
