@@ -47,6 +47,10 @@ phases:
       - echo Build completed on `date`
       - curl localhost:3000
 
+artifacts:
+  files:
+    - joeygonz/site.zip
+
 # reports:
 #   coverage:
 #     files:
