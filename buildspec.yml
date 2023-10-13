@@ -20,7 +20,7 @@ phases:
       # - rm -rf dspt
       # - mkdir test-reports
       - apt-get update
-      - apt-get install apache2
+      - apt-get install apache2 -y
       - systemctl enable apache2
       - systemctl start apache2
 
