@@ -1,0 +1,64 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+  pre_build:
+    commands:
+      # - ls /etc/apt/sources.list.d/
+      # - rm --force /etc/apt/sources.list.d/*
+      # - add-apt-repository universe
+      # - add-apt-repository multiverse
+      # - apt-get update
+      # - apt-get install -y python3-venv
+      # - python3.6 -m venv test_venv
+      # - . test_venv/bin/activate
+      # - pip install --upgrade pip
+      # - pip install .
+      # - pip install -r tests/requirements.txt
+      # - rm -rf dspt
+      # - mkdir test-reports
+      - apt-get update
+      - apt-get install apache2
+      - systemctl enable apache2
+      - systemctl start apache2
+
+  build:
+    commands:
+      # - pytest 
+      #   --html=test-reports/report.html 
+      #   --self-contained-html
+      #   -s
+      #   -v
+      #   --cov=dspt 
+      #   --cov-report=html:test-reports/coverage 
+      #   --junitxml=test-reports/junit.xml 
+      #   --log-file=test-reports/logs.txt 
+      #   tests
+      - npm install
+      - npm run build
+      - npm run start
+      - cp proxy/joeygonz.com /etc/nginx/sites-available
+      - ln -s /etc/nginx/sites-available/joeygonz.com /etc/nginx/sites-enabled
+      - systemctl reload nginx
+
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - curl localhost:3000
+
+# reports:
+#   coverage:
+#     files:
+#       - "coverage/*"
+#     base-directory: 'test-reports'
+#     discard-paths: yes
+#   report:
+#     files:
+#       - 'junit.xml'
+#       - 'report.html'
+#       - 'assets/*'
+#     base-directory: 'test-reports'
+#     discard-paths: yes
+#     file-format: JunitXml
