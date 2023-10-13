@@ -37,7 +37,7 @@ phases:
       #   tests
       - npm install
       - npm run build
-      - npm run start
+      - npm run start &
       - cp proxy/joeygonz.com /etc/nginx/sites-available
       - ln -s /etc/nginx/sites-available/joeygonz.com /etc/nginx/sites-enabled
       - service nginx restart
