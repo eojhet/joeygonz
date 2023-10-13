@@ -46,10 +46,9 @@ phases:
     commands:
       - echo Build completed on `date`
       - curl localhost:3000
-
+      - printf '[{"name":"your.task.definition.name","imageUri":"%s"}]' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG > imagedefinitions.json
 artifacts:
-  files:
-    - joeygonz/site.zip
+    files: imagedefinitions.json
 
 # reports:
 #   coverage:
