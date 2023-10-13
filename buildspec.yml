@@ -20,9 +20,8 @@ phases:
       # - rm -rf dspt
       # - mkdir test-reports
       - apt-get update
-      - apt-get install apache2 -y
-      - systemctl enable apache2
-      - systemctl start apache2
+      - apt-get install nginx -y
+      - service nginx start
 
   build:
     commands:
@@ -41,7 +40,7 @@ phases:
       - npm run start
       - cp proxy/joeygonz.com /etc/nginx/sites-available
       - ln -s /etc/nginx/sites-available/joeygonz.com /etc/nginx/sites-enabled
-      - systemctl reload nginx
+      - service nginx restart
 
   post_build:
     commands:
