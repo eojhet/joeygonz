@@ -12,4 +12,4 @@ hooks:
     - location: scripts/installNginx.sh
     - location: scripts/buildSite.sh
   ApplicationStart:
-    - location: Scripts/applicationStart.sh
+    - location: scripts/applicationStart.sh
