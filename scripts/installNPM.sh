@@ -10,5 +10,6 @@ then
     echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
 else
     echo "nodejs installed...updating..."
+fi
 apt-get update
 apt-get install nodejs -y
