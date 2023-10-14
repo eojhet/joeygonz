@@ -6,23 +6,54 @@ phases:
       nodejs: 18
   pre_build:
     commands:
-      - apt-get update
-      - apt-get install nginx -y
-      - service nginx start
+      - echo preBuild
 
   build:
     commands:
-      - npm install
-      - npm run build
-      - npm run start &
-      - cp proxy/joeygonz.com /etc/nginx/sites-available
-      - ln -s /etc/nginx/sites-available/joeygonz.com /etc/nginx/sites-enabled
-      - service nginx restart
+      - echo build
 
   post_build:
     commands:
+      - echo postBuild
+      - zip -r site.zip ./*
       - echo Build completed on `date`
-      - curl localhost:3000
       - printf '[{"name":"your.task.definition.name","imageUri":"%s"}]' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG > imagedefinitions.json
 artifacts:
-    files: imagedefinitions.json
+    files: 
+      - imagedefinitions.json
+      - appspec.yml
+      - site.zip
+      - scripts/**/*
+
+
+# version: 0.2
+
+# phases:
+#   install:
+#     runtime-versions:
+#       nodejs: 18
+#   pre_build:
+#     commands:
+#       - apt-get update
+#       - apt-get install nginx -y
+#       - service nginx start
+
+#   build:
+#     commands:
+#       - npm install
+#       - npm run build
+#       - npm run start &
+#       - cp proxy/joeygonz.com /etc/nginx/sites-available
+#       - ln -s /etc/nginx/sites-available/joeygonz.com /etc/nginx/sites-enabled
+#       - service nginx restart
+
+#   post_build:
+#     commands:
+#       - echo Build completed on `date`
+#       - curl localhost:3000
+#       - printf '[{"name":"your.task.definition.name","imageUri":"%s"}]' $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG > imagedefinitions.json
+# artifacts:
+#     files: 
+#       - imagedefinitions.json
+#       - appspec.yml
+
