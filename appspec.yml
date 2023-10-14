@@ -2,14 +2,15 @@ version: 0.0
 os: linux
 files:
   - source: site.zip
-    destination: /home/ubuntu/zip
+    destination: /home/ubuntu
     overwrite: true
 hooks:
   BeforeInstall:
-    - location: scripts/unzipSite.sh
-    - location: scripts/installNPM
-    - location: scripts/installNginx
+    - location: scripts/clean.sh
   AfterInstall:
+    - location: scripts/unzipSite.sh
+    - location: scripts/installNPM.sh
+    - location: scripts/installNginx.sh
     - location: scripts/buildSite.sh
   ApplicationStart:
     - location: Scripts/applicationStart.sh
