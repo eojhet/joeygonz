@@ -1,8 +1,11 @@
 #!/bin/bash
 
-echo switching to user for start $(date) >> /home/ubuntu/logs
+echo switching to user for site startup
 sudo su ubuntu
+sudo chown -R ubuntu /home/ubuntu/joeygonz/
 cd /home/ubuntu/joeygonz
+npm install
+pm2 stop all
 npm run build
 pm2 delete "joeygonz"
 pm2 save --force
