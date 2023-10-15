@@ -1,14 +1,12 @@
 #!/bin/bash
-echo Cleaning files
+echo Cleaning files $(date) $(date) >> /home/ubuntu/logs
 rm -rf /home/ubuntu/joeygonz
 
-echo updating instance
+echo updating instance $(date) >> /home/ubuntu/logs
 apt-get update
 apt-get upgrade -y
-apt-get autoremove
 
-echo Starting unzip
+echo Starting unzip $(date) >> /home/ubuntu/logs
 apt-get install -y unzip
 unzip /home/ubuntu/site.zip -d /home/ubuntu/joeygonz
-chown -R ubuntu joeygonz/
 echo Finishing unzip
