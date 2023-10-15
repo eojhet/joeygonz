@@ -7,7 +7,7 @@ export default function Home() {
 
     <main className={styles.main}>
       <div className={styles.joeygonz}>JoeyGonz</div>
-      <div>you will never be the same</div>
+      <div><i>Buckle up, Buttercup</i></div>
     </main>
   )
 }
