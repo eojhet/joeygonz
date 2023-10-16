@@ -7,7 +7,7 @@ export default function Home() {
 
     <main className={styles.main}>
       <div className={styles.joeygonz}>JoeyGonz</div>
-      <div><i>The beandip is FIRE</i></div>
+      <div><i>This is getting good</i></div>
     </main>
   )
 }
