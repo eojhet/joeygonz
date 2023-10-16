@@ -1,5 +1,6 @@
 server {  
-        listen 80 default_server;
+        listen 443;
+        server_name www.joeygonz.com joeygonz.com;
         location / {  
                 proxy_pass http://localhost:3000;  
                 proxy_http_version 1.1;  
