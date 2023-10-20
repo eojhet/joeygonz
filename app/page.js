@@ -8,7 +8,7 @@ export default function Home() {
     <main className={styles.main}>
       <div className={styles.joeygonz}>
         <h1>JoeyGonz</h1>
-        <p><i>Coming Soon</i></p>
+        <p><i>Stop Living a Lie.</i></p>
       </div>
       <div className={styles.card}>
         <h2>In the meantime, go and make a boring log at my other site {"->"} <a href="https://boring.eojhet.com">Boring.Eojhet.com</a></h2>
