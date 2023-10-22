@@ -7,8 +7,6 @@ cd /home/ubuntu/joeygonz
 npm install
 pm2 stop all
 npm run build
-pm2 delete "joeygonz"
-pm2 save --force
 pm2 start npm --name "joeygonz" -- start
 pm2 startup
 sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu

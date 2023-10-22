@@ -11,4 +11,5 @@ systemctl restart nginx
 echo switing to user for build 
 cd /home/ubuntu/joeygonz
 npm install -g npm@10.2.0
+npm uninstall -g pm2
 npm install -g pm2
