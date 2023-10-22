@@ -5,7 +5,6 @@ sudo -i -u ubuntu bash << EOF
 sudo chown -R ubuntu /home/ubuntu/joeygonz/
 cd /home/ubuntu/joeygonz
 npm install
-pm2 stop all
 npm run build
 pm2 start npm --name "joeygonz" -- start
 pm2 startup
