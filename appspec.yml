@@ -8,8 +8,6 @@ hooks:
   BeforeInstall:
   AfterInstall:
     - location: scripts/unzipSite.sh
-    # - location: scripts/installNPM.sh
-    # - location: scripts/installNginx.sh
     - location: scripts/buildSite.sh
   ApplicationStart:
     - location: scripts/applicationStart.sh
